@@ -1,6 +1,6 @@
 // Memeorandum Colors user script
 // version 0.3
-// 2012-02-16
+// 2012-04-16
 // Created by Andy Baio, http://waxy.org/
 // Data crunching by Joshua Schachter
 // Released under the GPL license
@@ -37,7 +37,7 @@ req = GM_xmlhttpRequest({
         'Accept': 'application/xml,text/xml',
         'Accept-Encoding': 'gzip'
     },
-    url: 'http://spreadsheets.google.com/feeds/list/0An6owk_2QmY7dDdSNVlGRXNIdjBsdTNSMUVqRHNyVGc/od6/public/values',
+    url: 'http://spreadsheets.google.com/feeds/list/0Ag0BxADNLZqgdE1qLTBMQTFQQlQ0TWJxSVNKZ0hQTkE/od6/public/values',
     onload: function(responseDetails) {
         if (responseDetails.status == 200) {
             var parser = new DOMParser();
