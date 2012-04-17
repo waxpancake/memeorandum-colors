@@ -16,12 +16,10 @@ color, the more they link only to articles in their same
 group.
 
 
-Using singular-
-
 
 ### Google Chrome
 
-1. Click the memeorandum_colors.user.js link above.
+1. Click the [memeorandum_colors.user.js](https://github.com/waxpancake/memeorandum-colors/raw/master/memeorandum_colors.user.js) link.
 2. In the warning dialog at the bottom of Chrome window, select "Continue."
 2. Visit Memeorandum and wait a moment for the links to color.
 
@@ -30,7 +28,7 @@ Using singular-
 
 1. Install [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/).
 2. Restart Firefox.
-3. Click the memeorandum_colors.user.js link above, wait three seconds, and Install.
+3. Click the [memeorandum_colors.user.js](https://github.com/waxpancake/memeorandum-colors/raw/master/memeorandum_colors.user.js) link above, wait three seconds, and Install.
 4. Visit Memeorandum and wait a moment for the links to color.
 
 
