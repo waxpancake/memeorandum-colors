@@ -19,9 +19,10 @@ group.
 
 ### Google Chrome
 
-1. Click the [memeorandum_colors.user.js](https://github.com/waxpancake/memeorandum-colors/raw/master/memeorandum_colors.user.js) link.
-2. In the warning dialog at the bottom of Chrome window, select "Continue."
-2. Visit Memeorandum and wait a moment for the links to color.
+1. Right-click and save [memeorandum_colors.user.js](https://github.com/waxpancake/memeorandum-colors/raw/master/memeorandum_colors.user.js) as a file on your computer.
+2. On Windows, click the wrench icon on your toolbar and choose Tools->Extensions. On Mac, click the Windows->Extensions menu item.
+3. Locate the memorandum.user.js file on your computer and drag it onto the Extensions window. Choose "Add."
+4. Visit Memeorandum and wait a moment for the links to color.
 
 
 ### Firefox
