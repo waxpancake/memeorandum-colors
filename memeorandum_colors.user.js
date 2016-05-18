@@ -1,6 +1,6 @@
 // Memeorandum Colors user script
-// version 0.3
-// 2012-04-16
+// version 0.4
+// 2016-05-18
 // Created by Andy Baio, http://waxy.org/
 // Data crunching by Joshua Schachter
 // Released under the GPL license
@@ -26,8 +26,10 @@
 // @name          Memeorandum Colors
 // @namespace     http://waxy.org/2008/10/memeorandum_colors/
 // @description   Color Memeorandum stories based on linking bias
+// @connect       memeorandum.com
 // @include       http://memeorandum.com/*
 // @include       http://www.memeorandum.com/*
+// @grant         GM_xmlhttpRequest
 // ==/UserScript==
 
 req = GM_xmlhttpRequest({
