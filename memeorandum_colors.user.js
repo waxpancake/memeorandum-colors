@@ -1,6 +1,6 @@
 // Memeorandum Colors user script
-// version 0.4
-// 2016-05-18
+// version 0.5
+// 2016-06-20
 // Created by Andy Baio, http://waxy.org/
 // Data crunching by Joshua Schachter
 // Released under the GPL license
