@@ -27,6 +27,7 @@
 // @namespace     http://waxy.org/2008/10/memeorandum_colors/
 // @description   Color Memeorandum stories based on linking bias
 // @connect       memeorandum.com
+// @connect       spreadsheets.google.com
 // @include       http://memeorandum.com/*
 // @include       http://www.memeorandum.com/*
 // @grant         GM_xmlhttpRequest
