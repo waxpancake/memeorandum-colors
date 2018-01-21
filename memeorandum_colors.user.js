@@ -28,8 +28,7 @@
 // @description   Color Memeorandum stories based on linking bias
 // @connect       memeorandum.com
 // @connect       spreadsheets.google.com
-// @include       http://memeorandum.com/*
-// @include       http://www.memeorandum.com/*
+// @include       *memeorandum.com/*
 // @grant         GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -50,75 +49,57 @@ req = GM_xmlhttpRequest({
             var scores = [];
             for (var i = 0; i < entries.length; i++) {
                 var url = entries[i].getElementsByTagNameNS('http://schemas.google.com/spreadsheets/2006/extended','url')[0].textContent;
-                var score = entries[i].getElementsByTagNameNS('http://schemas.google.com/spreadsheets/2006/extended','score')[0].textContent;                
+                var score = entries[i].getElementsByTagNameNS('http://schemas.google.com/spreadsheets/2006/extended','score')[0].textContent;
                 scores[url] = score;
             }
-            names = colorExpanded(scores);                   
+            names = colorExpanded(scores);
             colorCollapsed(names);
         }
     }
 });
 
 function colorExpanded(scores) {
-    var allElements;
     var names = [];
-    
-    allElements = document.evaluate(
-        "//div[@class='lnkr']/cite/a",
-        document,
-        null,
-        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-        null);
-        
-    for (var i = 0; i < allElements.snapshotLength; i++) {
-        a = allElements.snapshotItem(i);
+
+    Array.from(document.querySelectorAll("cite a")).forEach(a => {
         memeUrl = a.href;
         memeName = a.textContent;
 
         if (scores[memeUrl]) {
             var score = scores[memeUrl];
-            score = Math.round(score*1000)/10;            
+            score = Math.round(score*1000)/10;
             // a.textContent += ' (' + score + ')';
-            
+
             // generate a hex color based on the score
             color = setColor(score);
             a.style.backgroundColor = color;
             if (score != 0) { a.style.textDecoration = 'none'; }
-            
+
             // set color for rewriting collapsed view
             names[memeName.substr(0,14)] = color;
         }
-    }
+    });
     return names;
 }
 
 function colorCollapsed(names) {
-    var allElements;
-    allElements = document.evaluate(
-        "//span[@class='mls']/a",
-        document,
-        null,
-        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-        null);
-        
-    for (var i = 0; i < allElements.snapshotLength; i++) {
-        a = allElements.snapshotItem(i);
+    Array.from(document.querySelectorAll("span.mls a")).forEach(a => {
         memeName = a.textContent.substr(0,14);
         if (names[memeName] != 'none') {
             a.style.backgroundColor = names[memeName];
             a.style.textDecoration = 'none';
         }
-    }
+    });
 }
 
 function setColor(p) {
     if (p < 0) {
-        if  (p < -10) { color = '#8686ff'; } 
-        else if (p < -5) { color = '#aaaaff'; } 
+        if  (p < -10) { color = '#8686ff'; }
+        else if (p < -5) { color = '#aaaaff'; }
         else { color = '#ccccff'; }
     } else if (p > 0) {
-        if (p > 30) { color = '#ff6666'; } 
-        else if (p > 5) { color = '#ff9999'; } 
+        if (p > 30) { color = '#ff6666'; }
+        else if (p > 5) { color = '#ff9999'; }
         else { color = '#ffcccc'; }
     } else {
         color = 'none';
