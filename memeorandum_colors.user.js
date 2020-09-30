@@ -32,7 +32,7 @@
 // @grant         GM_xmlhttpRequest
 // ==/UserScript==
 
-req = GM_xmlhttpRequest({
+var req = GM_xmlhttpRequest({
     method: 'GET',
     headers: {
         'User-Agent': 'Mozilla/4.0 (compatible) Greasemonkey (gzip)',
@@ -50,9 +50,10 @@ req = GM_xmlhttpRequest({
             for (var i = 0; i < entries.length; i++) {
                 var url = entries[i].getElementsByTagNameNS('http://schemas.google.com/spreadsheets/2006/extended','url')[0].textContent;
                 var score = entries[i].getElementsByTagNameNS('http://schemas.google.com/spreadsheets/2006/extended','score')[0].textContent;
+                url = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
                 scores[url] = score;
             }
-            names = colorExpanded(scores);
+            var names = colorExpanded(scores);
             colorCollapsed(names);
         }
     }
@@ -62,8 +63,9 @@ function colorExpanded(scores) {
     var names = [];
 
     Array.from(document.querySelectorAll("cite a")).forEach(a => {
-        memeUrl = a.href;
-        memeName = a.textContent;
+        var memeUrl = a.href;
+        memeUrl = memeUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
+        var memeName = a.textContent;
 
         if (scores[memeUrl]) {
             var score = scores[memeUrl];
@@ -71,7 +73,7 @@ function colorExpanded(scores) {
             // a.textContent += ' (' + score + ')';
 
             // generate a hex color based on the score
-            color = setColor(score);
+            var color = setColor(score);
             a.style.backgroundColor = color;
             if (score != 0) { a.style.textDecoration = 'none'; }
 
@@ -84,7 +86,7 @@ function colorExpanded(scores) {
 
 function colorCollapsed(names) {
     Array.from(document.querySelectorAll("span.mls a")).forEach(a => {
-        memeName = a.textContent.substr(0,14);
+        var memeName = a.textContent.substr(0,14);
         if (names[memeName] != 'none') {
             a.style.backgroundColor = names[memeName];
             a.style.textDecoration = 'none';
@@ -93,8 +95,9 @@ function colorCollapsed(names) {
 }
 
 function setColor(p) {
+    var color = '';
     if (p < 0) {
-        if  (p < -10) { color = '#8686ff'; }
+        if (p < -10) { color = '#8686ff'; }
         else if (p < -5) { color = '#aaaaff'; }
         else { color = '#ccccff'; }
     } else if (p > 0) {
