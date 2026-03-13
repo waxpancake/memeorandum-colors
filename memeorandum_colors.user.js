@@ -101,7 +101,7 @@ function scoreToColor(p) {
     if (p < -10) return '#8686ff';  // strong liberal
     if (p < -5)  return '#aaaaff';  // moderate liberal
     if (p < 0)   return '#ccccff';  // lean liberal
-    if (p > 30)  return '#ff6666';  // strong conservative
+    if (p > 10)  return '#ff6666';  // strong conservative
     if (p > 5)   return '#ff9999';  // moderate conservative
     if (p > 0)   return '#ffcccc';  // lean conservative
     return 'none';                  // neutral
