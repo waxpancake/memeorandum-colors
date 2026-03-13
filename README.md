@@ -6,7 +6,7 @@ When installed, it will color publication names on Memeorandum based on each sit
 
 **Note:** This does not necessarily mean that the publication itself is politically conservative or liberal: only that it tends to historically link to articles similar to other publications in its cluster.
 
-![Screenshot of Memeorandum homepage with publication names colored red and blue](https://github.com/waxpancake/memeorandum-colors/raw/master/src/screenshot.jpg)
+![Screenshot of Memeorandum homepage with publication names colored red and blue](https://github.com/waxpancake/memeorandum-colors/raw/master/screenshot.jpg)
 
 Read the original [2008 Waxy.org post](https://waxy.org/2008/10/memeorandum_colors/) about the project and how it works, and the [2012 update](https://waxy.org/2012/04/memeorandum_colors_2012_visualizing_bias_on_political_blogs/).
 
